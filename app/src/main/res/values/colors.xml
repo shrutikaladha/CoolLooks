@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="theme_color">#FC6C85</color>
+    <color name="action_bar_color">#FC6C85</color>
+    <color name="text_color">#f5f5f5</color>
+    <color name="background_color">#ffffff</color>
+</resources>

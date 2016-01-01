@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textSize="@dimen/font_subhead_1_text_size"
+        android:text="How about this look?"
+        android:textColor="@color/theme_color"/>
+
+    <ImageView
+        android:id="@+id/ivShare"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/share_img"
+        android:layout_alignParentRight="true"/>
+
+    <ImageView
+        android:id="@+id/ivLike"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/like"
+        android:layout_alignLeft="@+id/ivJeans"
+        android:layout_alignParentBottom="true"/>
+
+
+    <ImageView
+        android:id="@+id/ivTshirt"
+        android:layout_width="300dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/tvDesc"
+        android:layout_centerInParent="true"
+        android:src="@drawable/empty"/>
+
+    <ImageView
+        android:id="@+id/ivJeans"
+        android:layout_width="300dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="15dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/ivTshirt"
+        android:src="@drawable/empty"/>
+
+    <ImageView
+        android:id="@+id/ivDislike"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/dislike"
+        android:layout_alignRight="@+id/ivJeans"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>
