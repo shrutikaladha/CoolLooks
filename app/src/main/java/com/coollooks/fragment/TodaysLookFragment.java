@@ -50,10 +50,7 @@ public class TodaysLookFragment extends Fragment {
         options = new DisplayImageOptions.Builder().cacheInMemory().cacheOnDisc().build();
 
         requestNewImage();
-
-        //final String temp1 = tShirtPath;
-        //final String temp2 = jeansPath;
-
+        
         ivLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
