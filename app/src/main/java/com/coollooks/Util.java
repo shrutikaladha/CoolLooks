@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Environment;
 import android.view.View;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -17,13 +18,13 @@ import java.util.HashMap;
  * Created by Shrutika on 12/27/2015.
  */
 public class Util {
-    private static ArrayList<String> tShirtPathList;
-    private static ArrayList<String> jeansPathList;
+    public static ArrayList<String> tShirtPathList;
+    public static ArrayList<String> jeansPathList;
     private static ArrayList<String> bookmarkPathList;
     private static final String tshirtFolderPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/CoolLooks/TSHIRTS/" ;
     private static final String jeansFolderPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/CoolLooks/JEANS/";
     private static final String bookmarkFolderPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/CoolLooks/SCREENCSHOTS/";
-    public static final HashMap<Integer, String> dislikeMap = new HashMap<Integer, String>();
+    public static HashMap<Integer, String> dislikeMap = new HashMap<Integer, String>();
     public static final HashMap<Integer, String> likeMap = new HashMap<Integer, String>();
 
     public static String  getTshirtListPath() {
@@ -99,9 +100,9 @@ public class Util {
     public static String getTodaysTshirt() {
         if(tShirtPathList == null)
             setTshirtList();
-        int i = (int) (Math.random()*33 % (tShirtPathList.size()-1));
+        int i = (int) (Math.random()*33 % (tShirtPathList.size()));
         if(tShirtPathList.size() > 0)
-        return (tShirtPathList.get(i));
+            return (tShirtPathList.get(i));
         else
             return null;
     }
@@ -109,9 +110,9 @@ public class Util {
     public static String getTodaysJeans() {
         if(jeansPathList == null)
             setJeansList();
-        int i = (int) (Math.random()*68 % (jeansPathList.size()-1));
+        int i = (int) (Math.random()*68 % (jeansPathList.size()));
         if(jeansPathList.size() > 0)
-        return (jeansPathList.get(i));
+            return (jeansPathList.get(i));
         else
             return null;
     }

@@ -43,7 +43,7 @@ public class TodaysLookFragment extends Fragment {
         ivTshirt = (ImageView) view.findViewById(R.id.ivTshirt);
         ivJeans = (ImageView) view.findViewById(R.id.ivJeans);
         ivLike = (ImageView) view.findViewById(R.id.ivLike);
-        ivLike = (ImageView) view.findViewById(R.id.ivLike);
+        //ivLike = (ImageView) view.findViewById(R.id.ivLike);
         ivDislike = (ImageView) view.findViewById(R.id.ivDislike);
         ivShare = (ImageView) view.findViewById(R.id.ivShare);
         imageLoader.init(ImageLoaderConfiguration.createDefault(getActivity()));
@@ -51,15 +51,15 @@ public class TodaysLookFragment extends Fragment {
 
         requestNewImage();
 
-        final String temp1 = tShirtPath;
-        final String temp2 = jeansPath;
+        //final String temp1 = tShirtPath;
+        //final String temp2 = jeansPath;
 
         ivLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (!Util.likeMap.containsKey((temp1 + temp2).hashCode())) {
-                    Util.likeMap.put((temp1 + temp2).hashCode(), temp1 + temp2);
+                if (!Util.likeMap.containsKey((tShirtPath + jeansPath).hashCode())) {
+                    Util.likeMap.put((tShirtPath + jeansPath).hashCode(), tShirtPath + jeansPath);
                     takeScreenshot();
                     Util.setBookmarkList();
                 } else {
@@ -71,7 +71,7 @@ public class TodaysLookFragment extends Fragment {
         ivDislike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Util.dislikeMap.put((temp1 + temp2).hashCode(), temp1 + temp2);
+                Util.dislikeMap.put((10 * Util.tShirtPathList.indexOf(tShirtPath) + Util.jeansPathList.indexOf(jeansPath)), tShirtPath + jeansPath);
                 requestNewImage();
             }
         });
@@ -88,10 +88,17 @@ public class TodaysLookFragment extends Fragment {
     private void requestNewImage() {
         tShirtPath = Util.getTodaysTshirt();
         jeansPath = Util.getTodaysJeans();
-        while (Util.dislikeMap.containsKey((tShirtPath + jeansPath).hashCode())) {
-            requestNewImage();
+        boolean set = true;
+        if (Util.dislikeMap.containsKey(10 * Util.tShirtPathList.indexOf(tShirtPath) + Util.jeansPathList.indexOf(jeansPath))){
+            if(Util.tShirtPathList.size() * Util.jeansPathList.size() == Util.dislikeMap.size()) {
+                Toast.makeText(getActivity(), "Time for shopping", Toast.LENGTH_SHORT).show();
+                set = false;
+            } else
+                requestNewImage();
         }
-        setImage();
+        if(set == true) {
+            setImage();
+        }
     }
 
     private void setImage() {
